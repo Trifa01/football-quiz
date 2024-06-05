@@ -13,9 +13,21 @@ Football trivia with multiplayer mode
 
 - Default target: If you run `make` without specifying a target, it will run the install target. This means it will activate the virtual environment and install the dependencies.
 
-# Muliplayer mode 
+# TODO 
+
+## 1. Setup Flask SocketIO 
 
 - Start with a simple chat room using Flask SocketIO https://flask-socketio.readthedocs.io/en/latest/getting_started.html
 
 - A simple tutorial https://www.youtube.com/watch?v=AMp6hlA8xKA
 - A more fancy tutorial   https://www.youtube.com/watch?v=mkXdvs8H7TA
+
+## 2. Create a one player Room 
+- A room is created when the server is started 
+- A player signs-up to the room 
+- When the number of players in a room is equal to 1, boradcast a question (example: who's the best player ?). The answer to the questionned needs to be stored in a variable (example: 3laya El Brigui)
+- The player writes the answer
+- Once the answer is recieved on the server side, a check is made: 
+  - If correct print the winner name 
+  - Else print the correct answer (example: 3laya El Brigui)
+
