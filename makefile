@@ -1,23 +1,19 @@
-# Create a Python virtual environment
+all: install run
+
+install: venv
+	. .venv/bin/activate && pip install -r requirements.txt
+
 venv:
-	python3 -m venv .venv
+	test -d .venv || python3 -m venv .venv 
+	. .venv/bin/activate && pip install pip-tools
 
-# Activate the virtual environment
-activate: venv
-ifeq ($(OS),Windows_NT) 
-	.venv\Scripts\activate
-else
-	. .venv/bin/activate
-endif
+run:
+	. .venv/bin/activate && pip -V
+	. .venv/bin/activate && python3 run.py
 
-# Install dependencies
-install: activate
-	pip install -r requirements.txt
+update-requirements:
+	. .venv/bin/activate && pip-compile requirements.in
 
-# Run the main.py file
-run: install
-	python main.py
-
-# Default target
-.PHONY: default
-default: install
+clean:
+	rm -rf .venv
+	find -iname "*.pyc" -delete
