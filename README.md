@@ -1,17 +1,37 @@
 # football-quiz
 Football trivia with multiplayer mode
 
-# Getting started 
+# Makefile Overview
 
-1. Create a Python virtual environment: This can be done by running the command `make venv`. This command uses Python 3 to create a new virtual environment in the current directory, under the folder .venv.
+This Makefile automates the setup, running, and maintenance of a Python project. Here's a quick guide to using it:
 
-2. Activate the virtual environment: Run the command `make activate`. This command activates the virtual environment that was created in the previous step. The command to activate the environment differs based on the operating system. For Windows, it's `.venv\Scripts\activate`, and for Unix-based systems, it's `. .venv/bin/activate`.
+### Setup Project
 
-3. Install dependencies: Run the command `make install`. This command installs the project's dependencies, which are listed in the requirements.txt file. This command also activates the virtual environment if it hasn't been activated already.
+To install dependencies and prepare the virtual environment:
 
-4. Run the `main.py` file: Run the command make run. This command runs the `main.py` file. Before running the file, it ensures that the virtual environment is activated and the dependencies are installed.
+```make
+make install
+```
+### Run Project
+To activate the virtual environment and run the project:
+```make
+make run
+```
+### Update Dependencies
 
-- Default target: If you run `make` without specifying a target, it will run the install target. This means it will activate the virtual environment and install the dependencies.
+To update the `requirements.txt` file based on `requirements.in`:
+
+```make
+make update-requirements
+```
+
+### Clean Project
+To remove the virtual environment and clean up `.pyc` files:
+
+```make
+make clean
+```
+
 
 # TODO 
 
@@ -20,7 +40,6 @@ Football trivia with multiplayer mode
 - Start with a simple chat room using Flask SocketIO https://flask-socketio.readthedocs.io/en/latest/getting_started.html
 
 - A simple tutorial https://www.youtube.com/watch?v=AMp6hlA8xKA
-- A more fancy tutorial   https://www.youtube.com/watch?v=mkXdvs8H7TA
 
 ## 2. Create a one player Room 
 - A room is created when the server is started 
