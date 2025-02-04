@@ -1,8 +1,8 @@
 from flask import request
 from flask_socketio import emit
+from flask_socketio import SocketIO 
 
-from .extensions import socketio
-
+socketio = SocketIO()
 users = {}
 
 @socketio.on("connect")
@@ -17,8 +17,8 @@ def handle_user_join(username):
 @socketio.on("new_message")
 def handle_new_message(message):
     print(f"New message: {message}")
-    username = None 
-    for user in users:
-        if users[user] == request.sid:
-            username = user
-    emit("chat", {"message": message, "username": username}, broadcast=True)
+    # username = None 
+    # for user in users:
+    #     if users[user] == request.sid:
+    #         username = user
+    # emit("chat", {"message": message, "username": username}, broadcast=True)
